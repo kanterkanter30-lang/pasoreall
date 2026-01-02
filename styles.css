@@ -1,0 +1,412 @@
+/* ================== GENERAL ================== */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background: linear-gradient(180deg, #e6f2f8, #f8fbfd);
+  color: #0f172a;
+}
+
+.screen {
+  display: none;
+  min-height: 100vh;
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+.active {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
+
+p {
+  color: #475569;
+}
+
+/* ================== ELEMENTOS ================== */
+.tag {
+  background: rgba(14,165,233,0.1);
+  color: #0284c7;
+  padding: 6px 12px;
+  border-radius: 999px;
+  margin-bottom: 16px;
+}
+
+button {  
+  width: 100%;
+  max-width: 320px;
+  padding: 16px;
+  border-radius: 16px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.config-box {
+  max-width: 420px;
+  width: 100%;
+}
+
+.card-group {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  margin-top: 22px;
+}
+
+.card {
+  padding: 16px 26px;
+  background: white;
+  border-radius: 18px;
+  cursor: pointer;
+}
+
+.card.active {
+  border: 2px solid #0ea5e9;
+  background: #f0f9ff;
+}
+
+.video {
+  width: 100%;
+  max-width: 980px;
+  height: 60vh;
+  border-radius: 22px;
+  margin-bottom: 18px;
+}
+
+.metrics {
+  display: flex;
+  gap: 20px;
+  background: white;
+  padding: 12px 20px;
+  border-radius: 999px;
+}
+
+.walk-actions {
+  display: flex;
+  gap: 14px;
+  margin-top: 20px;
+}
+
+/* ================== HISTORIAL ================== */
+.history-card {
+  background: white;
+  border-radius: 18px;
+  padding: 16px 18px;
+  margin-bottom: 16px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.history-date {
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.history-metrics {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.95rem;
+  color: #334155;
+}
+
+#historyList {
+  width: 80%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}        
+
+#historial {
+  padding-top: 40px;
+}
+
+.history-metrics {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 6px;
+  font-size: 0.95rem;
+}
+
+.metric {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 80px;
+  justify-content: center;
+}
+
+.location-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 24px;
+}
+
+.location-btn {
+  width: 100%;
+  max-width: 320px;
+  padding: 16px;
+  margin: 12px auto;
+  border: none;
+  border-radius: 16px;
+  font-size: 18px;
+  font-weight: 600;
+  background: linear-gradient(135deg, #0ea5e9, #0284c7);
+  color: white;
+  display: block;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  box-shadow: 0 8px 20px rgba(14, 165, 233, 0.3);
+}
+
+.location-btn:active {
+  transform: scale(0.97);
+  box-shadow: 0 4px 12px rgba(14, 165, 233, 0.4);
+}
+
+.location-btn.route {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  box-shadow: 0 8px 20px rgba(34, 197, 94, 0.35);
+}
+
+.footer-note {
+  margin-top: 28px;
+  font-size: 0.75rem;
+  color: #94a3b8;
+  letter-spacing: 0.08em;
+}
+
+.progress-container {
+  width: 80%;
+  height: 8px;
+  background: #e3edf3;
+  border-radius: 10px;
+  margin: 14px auto;
+  overflow: hidden;
+}
+
+#progressBar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #1da1f2, #0d8ddb);
+  transition: width 0.5s linear;
+}
+
+.route-title {
+  text-align: center;
+  font-size: 14px;
+  color: #1ea7e1;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+.progress-info {
+  text-align: center;
+  font-size: 13px;
+  color: #6b7280; /* gris elegante */
+  margin-bottom: 6px;
+}
+
+.history-status {
+  margin-top: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.history-status.ok {
+  color: #16a34a;
+}
+
+.history-status.warn {
+  color: #f59e0b;
+}
+
+.route-summary {
+  background: #e0f2fe;
+  padding: 14px;
+  border-radius: 14px;
+  margin: 18px 0 8px;
+}
+
+.route-summary h3 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.route-summary p {
+  margin: 6px 0 0;
+  font-size: 0.9rem;
+  color: #374151;
+}
+
+.history-route {
+  font-weight: 600;
+  margin-top: 6px;
+}
+
+.history-status {
+  margin-top: 6px;
+  font-size: 0.9rem;
+}
+
+.history-status.done {
+  color: #16a34a;
+}
+
+.history-status.incomplete {
+  color: #f59e0b;
+}
+
+.history-link {
+  margin-top: 18px;
+}
+
+.primary-btn:active {
+  transform: scale(0.97);
+  box-shadow: 0 6px 16px rgba(14,165,233,0.4);
+}
+
+/* ================== FINAL ACTIONS ================== */
+.final-actions {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 100%;
+  max-width: 320px;
+}
+
+/* ================== BOTONES ================== */
+
+/* Botón principal */
+.primary-btn {
+  width: 100%;
+  max-width: 320px;
+  padding: 16px;
+  border-radius: 18px;
+  border: none;
+  background: linear-gradient(135deg, #0ea5e9, #0284c7);
+  color: white;
+  font-size: 18px;
+  font-weight: 700;
+  box-shadow: 0 10px 25px rgba(14,165,233,0.35);
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.primary-btn:active {
+  transform: scale(0.97);
+  box-shadow: 0 6px 16px rgba(14,165,233,0.45);
+}
+
+/* Volver tipo link (discreto) */
+.back-link {
+  align-self: flex-start;
+  background: none;
+  border: none;
+  color: #64748b;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 6px 0;
+  cursor: pointer;
+}
+
+.back-link:active {
+  opacity: 0.6;
+}
+
+/* Contenedor de acciones finales */
+.final-actions {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 100%;
+  max-width: 320px;
+}
+
+/* Botón secundario real */
+.secondary-btn {
+  width: 100%;
+  max-width: 320px;
+  padding: 14px;
+  border-radius: 18px;
+  border: none;
+  background: #e2e8f0;
+  color: #0f172a;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.secondary-btn:active {
+  opacity: 0.85;
+}
+
+/* Modo caminata limpio */
+#walk {
+  padding-top: 16px;
+}
+
+.walk-actions button {
+  border-radius: 14px;
+  padding: 14px;
+  font-size: 16px;
+}
+
+.metrics {
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.walk-actions {
+  display: flex;
+  gap: 16px;
+  width: 100%;
+  max-width: 420px;
+  margin: 20px auto 0;
+}
+
+.walk-actions button {
+  flex: 1;
+  padding: 16px 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 16px;
+  border: 2px solid #0f172a;
+  background: #ffffff;
+  color: #0f172a;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* Botón Pausar */
+#pauseBtn {
+  background: #f59e0b;
+  color: #ffffff;
+  border: none;
+}
+
+#pauseBtn:active {
+  transform: scale(0.97);
+}
+
+/* Botón Finalizar */
+.walk-actions .secondary {
+  background: #ffffff;
+  color: #0f172a;
+}
+
+.walk-actions .secondary:active {
+  transform: scale(0.97);
+}

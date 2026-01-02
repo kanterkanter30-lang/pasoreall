@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PasoReal – Malecón La Paz</title>
+
+  <!-- ESTILOS -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ================== PANTALLA INICIO ================== -->
+<div id="inicio" class="screen active">
+  <span class="tag">Experiencia gratuita</span>
+
+  <h1>¿Dónde quieres caminar hoy?</h1>
+  <p>Elige una experiencia real</p>
+
+  <button class="primary-btn" onclick="goTo('cities')">
+    Elegir ruta
+  </button>
+
+  <button class="secondary-btn history-link" onclick="goTo('historial')">
+  Ver historial
+  </button>
+
+  <div class="footer-note">
+    PasoReal · Camina el mundo desde casa
+  </div>
+</div>
+
+<!-- ================== CIUDADES ================== -->
+<div id="cities" class="screen">
+ 
+  <h1>¿En qué ciudad quieres caminar?</h1>
+  <p>Elige una ciudad</p>
+
+  <div class="location-group">
+    
+    <button class="location-btn"
+            onclick="selectCity('lapaz')">
+      📍 La Paz
+    </button>
+
+    <button class="location-btn"
+            onclick="selectCity('cabosanlucas')">
+      📍 Cabo San Lucas
+    </button>
+  
+  </div>
+
+    <button class="back-link" onclick="goTo('inicio')">
+  ← Volver
+    </button>
+
+</div>
+
+<!-- ================== UBICACIONES ================== -->
+<div id="locations" class="screen">
+  <h1 id="cityTitle">¿Dónde quieres caminar?</h1>
+  <p>Elige una experiencia real</p>
+
+  <div class="location-group" id="locationList">
+    <!-- aquí se cargan las rutas -->
+  </div>
+
+  <button class="back-link" onclick="goTo('cities')">
+    ← Volver
+  </button>
+</div>
+
+<!-- ================== RUTA NO DISPONIBLE ================== -->
+<div id="comingSoon" class="screen">
+  <h1>🚧 Ruta no disponible</h1>
+  <p id="comingTitle"></p>
+  <p>Estamos grabando esta experiencia.<br>Vuelve pronto.</p>
+
+  <button class="back-link" onclick="goTo('cities')">
+    ← Volver
+  </button>
+</div>
+
+<!-- ================== CONFIGURACIÓN ================== -->
+<div id="config" class="screen">
+  <div class="config-box">
+    <h1>Elige tu ritmo</h1>
+    <p>Ajusta tu caminadora o tu paso</p>
+
+    <div class="card-group">
+      <div class="card active" onclick="selectRitmo(this)">Suave</div>
+      <div class="card" onclick="selectRitmo(this)">Normal</div>
+      <div class="card" onclick="selectRitmo(this)">Activo</div>
+    </div>
+
+    <p class="duration">Duración: 20 minutos</p>
+    
+    <button class="primary-btn" onclick="startWalk()">
+  Comenzar caminata
+    </button>
+  </div>
+</div>
+
+<!-- ================== CARGANDO RUTA ================== -->
+<div id="loading" class="screen">
+  <h1>Cargando ruta…</h1>
+  <p>Preparando tu caminata virtual</p>
+</div>
+
+<!-- ================== CAMINATA ================== -->
+<div id="walk" class="screen">
+    
+    <div class="route-title">
+  <span id="routeName"></span>
+    </div>
+    
+    <div class="progress-info">
+  <span id="timeLeft"></span>
+    </div>
+
+  <video
+  id="walkVideo"
+  class="video"
+  playsinline
+  muted
+  autoplay
+  controls
+>
+  <source id="videoSource" src="" type="application/x-mpegURL">
+  Tu navegador no soporta video.
+</video>
+
+<div class="progress-container">
+  <div id="progressBar"></div>
+</div>
+
+  <div class="metrics">
+    <span>⏱ <span id="time">00:00</span></span>
+    <span>📏 <span id="distance">0.00</span> km</span>
+    <span>👣 <span id="steps">0</span></span>
+  </div>
+
+  <div class="walk-actions">
+    <button id="pauseBtn" onclick="togglePause()">⏸ Pausar</button>
+    <button class="secondary" onclick="finishWalk()">Finalizar</button>
+  </div>
+</div>
+
+<!-- ================== FINAL ================== -->
+<div id="final" class="screen">
+  <h1 id="finalTitle">Caminata finalizada</h1>
+  <p class="subtitle" id="finalSubtitle"></p>
+  <p id="finalData"></p>
+
+  <div class="final-actions">
+    <button class="primary-btn" onclick="saveHistory()">
+      Guardar progreso
+    </button>
+
+    <button class="secondary-btn" onclick="goTo('inicio')">
+      Volver al inicio
+    </button>
+  </div>
+</div>
+
+<!-- ================== HISTORIAL ================== -->
+<div id="historial" class="screen">
+  <h1>Historial de caminatas</h1>
+  <div id="historyList"></div>
+  <button class="secondary-btn" onclick="goTo('inicio')">Volver al inicio</button>
+</div>
+
+<!-- LÓGICA -->
+<script src="app.js"></script>
+</body>
+</html>
